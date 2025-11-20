@@ -1,18 +1,27 @@
 package com.student;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class StudentImplementation implements StudentOperations{
+	
+	private List<Student> slList = new ArrayList<Student>();
 
 	@Override
 	public void addStudent(Student student) {
-		// TODO Auto-generated method stub
+		
+		slList.add(student);
 		
 	}
 
 	@Override
 	public boolean deleteStudent(int id) {
-		// TODO Auto-generated method stub
+		
+		for (Student s : slList) {
+			 if(s.getId() == id) {
+				 slList.remove(s);
+				 return true;
+			 }
+		}
 		return false;
 	}
 
